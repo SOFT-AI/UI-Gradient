@@ -2,7 +2,7 @@
 
 A gradient picker tool for UI developers to doodle and save their favorite gradient.
 
-<img src='SS1.jpg' height=420 width=1080></img>
+<img src='SS1.jpg' height=500 width=1080></img>
 
 ## Getting Started
 
