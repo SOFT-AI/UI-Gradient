@@ -33,6 +33,8 @@ dependencies:
   awesome_dialog: ^0.0.5
 
 
+module:
+  androidX: true 
 
 dev_dependencies:
   flutter_test:

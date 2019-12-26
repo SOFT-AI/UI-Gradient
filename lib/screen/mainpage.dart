@@ -40,7 +40,7 @@ class _MainState extends State<Main> with AutomaticKeepAliveClientMixin<Main> {
     print("Hive put new gradient");
   }
 
-  Widget FirstPicker() {
+  Widget get FirstPicker {
     return new Column(
       children: <Widget>[
         new SizedBox(
@@ -322,7 +322,7 @@ class _MainState extends State<Main> with AutomaticKeepAliveClientMixin<Main> {
                   ],
                 ),
               ),
-              Visibility(visible: firstPicker, child: FirstPicker()),
+              Visibility(visible: firstPicker, child: FirstPicker),
               Visibility(visible: secondPicker, child: SecondPicker()),
             ],
           ),

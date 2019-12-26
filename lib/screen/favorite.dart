@@ -1,7 +1,4 @@
-import 'dart:collection';
-
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:hive/hive.dart';
@@ -48,58 +45,58 @@ class _FavoritePageState extends State<FavoritePage> {
             borderRadius: BorderRadius.circular(20),
             child: InkWell(
               onTap: () {
-                setState(() {
-                  AwesomeDialog(
-                          context: context,
-                          animType: AnimType.SCALE,
-                          customHeader: new Container(
-                            decoration: BoxDecoration(
-                                boxShadow: [BoxShadow(color: Colors.black, blurRadius: 50, spreadRadius: 0.01)],
-                                shape: BoxShape.circle,
-                                border: Border.all(width: 0, color: Colors.transparent),
-                                gradient: LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [
-                                  Color.fromRGBO(
+                AwesomeDialog(
+                        context: context,
+                        animType: AnimType.SCALE,
+                        customHeader: new Container(
+                          decoration: BoxDecoration(
+                              boxShadow: [BoxShadow(color: Colors.black, blurRadius: 50, spreadRadius: 0.01)],
+                              shape: BoxShape.circle,
+                              border: Border.all(width: 0, color: Colors.transparent),
+                              gradient: LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [
+                                Color.fromRGBO(
+                                    m.values.toList().reversed.elementAt(index).primaryColor[0].toInt(),
+                                    m.values.toList().reversed.elementAt(index).primaryColor[1].toInt(),
+                                    m.values.toList().reversed.elementAt(index).primaryColor[2].toInt(),
+                                    1),
+                                Color.fromRGBO(
+                                    m.values.toList().reversed.elementAt(index).secondaryColor[0].toInt(),
+                                    m.values.toList().reversed.elementAt(index).secondaryColor[1].toInt(),
+                                    m.values.toList().reversed.elementAt(index).secondaryColor[2].toInt(),
+                                    1)
+                              ])),
+                        ),
+                        body: Center(
+                          child: Column(
+                            children: <Widget>[
+                              Text('Primary Color', style: TextStyle(fontWeight: FontWeight.bold)),
+                              Text(Color.fromRGBO(
                                       m.values.toList().reversed.elementAt(index).primaryColor[0].toInt(),
                                       m.values.toList().reversed.elementAt(index).primaryColor[1].toInt(),
                                       m.values.toList().reversed.elementAt(index).primaryColor[2].toInt(),
-                                      1),
-                                  Color.fromRGBO(
+                                      1)
+                                  .value
+                                  .toRadixString(16)),
+                              Text('Secondary Color', style: TextStyle(fontWeight: FontWeight.bold)),
+                              Text(Color.fromRGBO(
                                       m.values.toList().reversed.elementAt(index).secondaryColor[0].toInt(),
                                       m.values.toList().reversed.elementAt(index).secondaryColor[1].toInt(),
                                       m.values.toList().reversed.elementAt(index).secondaryColor[2].toInt(),
                                       1)
-                                ])),
+                                  .value
+                                  .toRadixString(16))
+                            ],
                           ),
-                          body: Center(
-                            child: Column(
-                              children: <Widget>[
-                                Text('Primary Color', style: TextStyle(fontWeight: FontWeight.bold)),
-                                Text(Color.fromRGBO(
-                                        m.values.toList().reversed.elementAt(index).primaryColor[0].toInt(),
-                                        m.values.toList().reversed.elementAt(index).primaryColor[1].toInt(),
-                                        m.values.toList().reversed.elementAt(index).primaryColor[2].toInt(),
-                                        1)
-                                    .value
-                                    .toRadixString(16)),
-                                Text('Secondary Color', style: TextStyle(fontWeight: FontWeight.bold)),
-                                Text(Color.fromRGBO(
-                                        m.values.toList().reversed.elementAt(index).secondaryColor[0].toInt(),
-                                        m.values.toList().reversed.elementAt(index).secondaryColor[1].toInt(),
-                                        m.values.toList().reversed.elementAt(index).secondaryColor[2].toInt(),
-                                        1)
-                                    .value
-                                    .toRadixString(16))
-                              ],
-                            ),
-                          ),
-                          btnCancelOnPress: () {
-                            box.delete(m.keys.toList().reversed.elementAt(index));
-                          },
-                          btnCancelText: "Delete")
-                      .show();
-                });
+                        ),
+                        btnCancelOnPress: () {
+                          // delete the specified tapped gradient card
+                          box.delete(m.keys.toList().reversed.elementAt(index));
 
-                setState(() {});
+                          // new state after deleting the card
+                          setState(() {});
+                        },
+                        btnCancelText: "Delete")
+                    .show();
               },
               child: Container(
                   decoration: BoxDecoration(
