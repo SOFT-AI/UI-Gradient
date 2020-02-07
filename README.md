@@ -2,6 +2,9 @@
 
 A gradient picker tool for UI developers to doodle and save their favorite gradient.
 
+<h2>Google Play Store Link</h2>
+<p>https://play.google.com/store/apps/details?id=com.softai.gradientx</p>
+
 <img src='SS1.jpg' height=500 width=1080></img>
 
 ## Getting Started
